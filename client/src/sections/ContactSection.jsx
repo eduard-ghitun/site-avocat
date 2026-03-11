@@ -88,6 +88,7 @@ function ContactSection() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    if (isSubmitting) return
     setSubmitFeedback({ type: 'idle', message: '' })
 
     const validationErrors = validateContactForm(formData)
