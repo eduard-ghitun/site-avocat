@@ -504,6 +504,50 @@ iframe {
   gap: 1.1rem;
 }
 
+.practice-areas-grid {
+  grid-auto-flow: dense;
+  align-items: start;
+}
+
+.practice-areas-section {
+  background-image: url('/images/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: clamp(4.8rem, 9vw, 7rem);
+}
+
+.practice-areas-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.practice-areas-section__container {
+  position: relative;
+  z-index: 1;
+}
+
+.practice-areas-section .section-header {
+  margin-bottom: 1.2rem;
+}
+
+.practice-areas-section h2,
+.practice-areas-section .section-subtitle,
+.practice-areas-section .section-loading {
+  color: #f3f7ff;
+}
+
+.practice-areas-section .section-subtitle,
+.practice-areas-section .section-loading {
+  max-width: 760px;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+}
+
 .about-layout {
   display: grid;
   grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
@@ -558,19 +602,64 @@ iframe {
   gap: 1rem;
 }
 
+.why-choose-grid--interactive {
+  grid-auto-flow: dense;
+  align-items: start;
+}
+
 .why-choose-card {
-  background: var(--surface);
-  border: 1px solid var(--border-soft);
+  background:
+    linear-gradient(155deg, rgba(20, 33, 58, 0.98), rgba(15, 27, 48, 0.95));
+  border: 1px solid rgba(176, 138, 74, 0.16);
   border-radius: var(--radius-md);
-  padding: 1.16rem;
-  box-shadow: 0 10px 24px rgba(17, 29, 49, 0.07);
-  transition: transform 0.24s var(--ease-premium), border-color 0.24s var(--ease-premium), box-shadow 0.24s var(--ease-premium);
+  box-shadow: 0 12px 28px rgba(17, 29, 49, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.28s var(--ease-premium),
+    border-color 0.28s var(--ease-premium),
+    box-shadow 0.28s var(--ease-premium),
+    background 0.28s var(--ease-premium);
 }
 
 .why-choose-card:hover {
   transform: translateY(-3px);
   border-color: rgba(176, 138, 74, 0.36);
   box-shadow: 0 18px 34px rgba(17, 29, 49, 0.13);
+}
+
+.why-choose-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(226, 187, 127, 0.08), rgba(226, 187, 127, 0));
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-premium);
+  pointer-events: none;
+}
+
+.why-choose-card__button {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  padding: 1.16rem;
+  border: 0;
+  background: transparent;
+  color: #f4f7fd;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.why-choose-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
 }
 
 .why-choose-icon {
@@ -588,13 +677,162 @@ iframe {
   border: 1px solid rgba(20, 33, 58, 0.12);
 }
 
+.why-choose-card__toggle {
+  width: 2.15rem;
+  height: 2.15rem;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(226, 187, 127, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f4ddb4;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition:
+    transform 0.35s var(--ease-premium),
+    border-color 0.35s var(--ease-premium),
+    background-color 0.35s var(--ease-premium),
+    box-shadow 0.35s var(--ease-premium);
+}
+
+.why-choose-card__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.why-choose-card__eyebrow {
+  display: inline-flex;
+  margin-bottom: 0.42rem;
+  color: rgba(235, 243, 255, 0.78);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .why-choose-card h3 {
   margin-bottom: 0.45rem;
-  color: var(--navy-strong);
+  color: #f8fbff;
 }
 
 .why-choose-card p {
-  color: var(--ink-muted);
+  color: rgba(235, 243, 255, 0.92);
+}
+
+.why-choose-card__summary {
+  margin-top: auto;
+  transition:
+    opacity 0.28s var(--ease-premium),
+    transform 0.28s var(--ease-premium),
+    max-height 0.35s var(--ease-premium),
+    margin 0.35s var(--ease-premium);
+}
+
+.why-choose-card__details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.42s var(--ease-premium),
+    opacity 0.28s var(--ease-premium);
+}
+
+.why-choose-card__details-inner {
+  overflow: hidden;
+}
+
+.why-choose-card__description,
+.why-choose-card__list {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.32s var(--ease-premium),
+    transform 0.32s var(--ease-premium);
+}
+
+.why-choose-card__description {
+  color: rgba(245, 248, 255, 0.98);
+}
+
+.why-choose-card__list {
+  list-style: none;
+  display: grid;
+  gap: 0.48rem;
+  margin-top: 0.9rem;
+}
+
+.why-choose-card__list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.55rem;
+  align-items: start;
+  color: rgba(245, 248, 255, 0.98);
+}
+
+.why-choose-card__list li::before {
+  content: '';
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  margin-top: 0.48rem;
+  background: linear-gradient(140deg, rgba(226, 187, 127, 0.96), rgba(176, 138, 74, 0.82));
+  box-shadow: 0 0 0 4px rgba(226, 187, 127, 0.1);
+}
+
+.why-choose-card.is-active {
+  grid-column: span 2;
+  border-color: rgba(226, 187, 127, 0.46);
+  box-shadow:
+    0 24px 46px rgba(15, 26, 44, 0.18),
+    0 0 0 1px rgba(226, 187, 127, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px) scale(1.015);
+  background:
+    linear-gradient(155deg, rgba(22, 37, 64, 0.99), rgba(17, 30, 53, 0.97));
+}
+
+.why-choose-card.is-active::before {
+  opacity: 1;
+}
+
+.why-choose-card.is-active .why-choose-card__toggle {
+  transform: rotate(45deg) scale(1.04);
+  border-color: rgba(226, 187, 127, 0.82);
+  background: rgba(226, 187, 127, 0.12);
+  box-shadow: 0 0 0 6px rgba(226, 187, 127, 0.08);
+}
+
+.why-choose-card.is-active .why-choose-card__summary {
+  opacity: 0;
+  transform: translateY(-8px);
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.why-choose-card.is-active .why-choose-card__details {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.why-choose-card.is-active .why-choose-card__description,
+.why-choose-card.is-active .why-choose-card__list {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.why-choose-card__button:focus-visible {
+  outline: none;
+}
+
+.why-choose-card:has(.why-choose-card__button:focus-visible) {
+  box-shadow:
+    0 18px 34px rgba(17, 29, 49, 0.16),
+    0 0 0 3px rgba(226, 187, 127, 0.2);
+  border-color: rgba(226, 187, 127, 0.56);
 }
 
 .contact-section {
@@ -935,6 +1173,144 @@ iframe {
   z-index: 1;
 }
 
+.practice-area-card {
+  min-height: 240px;
+  padding: 0;
+}
+
+.practice-areas-section .practice-area-card {
+  background:
+    linear-gradient(160deg, rgba(11, 18, 32, 0.48), rgba(18, 30, 50, 0.34));
+  border: 1px solid rgba(233, 217, 189, 0.2);
+  box-shadow:
+    0 18px 34px rgba(7, 11, 19, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.practice-areas-section .practice-area-card::before {
+  background: linear-gradient(140deg, rgba(226, 187, 127, 0.14), rgba(226, 187, 127, 0.02));
+}
+
+.practice-area-card__button {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.9rem;
+  padding: 1.22rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.practice-area-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.practice-area-card__eyebrow {
+  display: inline-flex;
+  margin-bottom: 0.38rem;
+  color: rgba(235, 243, 255, 0.88);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.practice-area-card__icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(176, 138, 74, 0.32);
+  background: rgba(255, 255, 255, 0.1);
+  color: #edf3fc;
+  font-size: 1.25rem;
+  line-height: 1;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition:
+    transform 0.35s var(--ease-premium),
+    border-color 0.35s var(--ease-premium),
+    background-color 0.35s var(--ease-premium),
+    box-shadow 0.35s var(--ease-premium);
+}
+
+.practice-area-card__summary {
+  color: inherit;
+  margin-top: auto;
+  transition:
+    opacity 0.28s var(--ease-premium),
+    transform 0.28s var(--ease-premium),
+    max-height 0.35s var(--ease-premium),
+    margin 0.35s var(--ease-premium);
+}
+
+.practice-area-card__details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.42s var(--ease-premium),
+    opacity 0.28s var(--ease-premium);
+}
+
+.practice-area-card__details-inner {
+  overflow: hidden;
+}
+
+.practice-area-card__description,
+.practice-area-card__list {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.32s var(--ease-premium),
+    transform 0.32s var(--ease-premium);
+}
+
+.practice-area-card__description {
+  color: rgba(245, 248, 255, 0.98);
+  text-shadow: 0 4px 12px rgba(9, 16, 28, 0.28);
+}
+
+.practice-area-card__list {
+  list-style: none;
+  display: grid;
+  gap: 0.48rem;
+  margin-top: 0.9rem;
+  color: rgba(245, 248, 255, 0.98);
+  text-shadow: 0 4px 12px rgba(9, 16, 28, 0.28);
+}
+
+.practice-area-card__list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.55rem;
+  align-items: start;
+  color: rgba(245, 248, 255, 0.98);
+}
+
+.practice-area-card__list li::before {
+  content: '';
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  margin-top: 0.48rem;
+  background: linear-gradient(140deg, rgba(226, 187, 127, 0.96), rgba(176, 138, 74, 0.82));
+  box-shadow: 0 0 0 4px rgba(226, 187, 127, 0.1);
+}
+
 .info-card:hover,
 .practice-area-card:hover,
 .testimonial-card:hover {
@@ -953,16 +1329,70 @@ iframe {
   background: linear-gradient(145deg, rgba(9, 16, 28, 0.64), rgba(9, 16, 28, 0.5));
 }
 
+.practice-area-card.is-active {
+  grid-column: span 2;
+  border-color: rgba(226, 187, 127, 0.46);
+  box-shadow:
+    0 28px 50px rgba(15, 26, 44, 0.18),
+    0 0 0 1px rgba(226, 187, 127, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  transform: translateY(-4px) scale(1.015);
+}
+
+.practice-areas-section .practice-area-card.is-active {
+  background:
+    linear-gradient(160deg, rgba(16, 27, 45, 0.68), rgba(21, 35, 57, 0.56));
+  border-color: rgba(226, 187, 127, 0.48);
+  box-shadow:
+    0 28px 48px rgba(3, 6, 12, 0.32),
+    0 0 0 1px rgba(226, 187, 127, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.practice-area-card.is-active::before {
+  opacity: 1;
+}
+
+.practice-area-card--image.is-active::after {
+  background: linear-gradient(145deg, rgba(9, 16, 28, 0.58), rgba(12, 19, 33, 0.42));
+}
+
+.practice-area-card.is-active .practice-area-card__icon {
+  transform: rotate(45deg) scale(1.04);
+  border-color: rgba(226, 187, 127, 0.78);
+  background: rgba(226, 187, 127, 0.14);
+  box-shadow: 0 0 0 6px rgba(226, 187, 127, 0.08);
+}
+
+.practice-area-card.is-active .practice-area-card__summary {
+  opacity: 0;
+  transform: translateY(-8px);
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.practice-area-card.is-active .practice-area-card__details {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.practice-area-card.is-active .practice-area-card__description,
+.practice-area-card.is-active .practice-area-card__list {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .info-card h3,
 .practice-area-card h3 {
   margin-bottom: 0.5rem;
-  color: var(--navy-strong);
+  color: #f3f7ff;
   font-size: 1.24rem;
 }
 
 .info-card p,
 .practice-area-card p {
-  color: var(--ink-muted);
+  color: rgba(235, 243, 255, 0.96);
 }
 
 .practice-area-card--image h3 {
@@ -970,9 +1400,36 @@ iframe {
   text-shadow: 0 4px 14px rgba(9, 16, 28, 0.35);
 }
 
+.practice-area-card--image .practice-area-card__eyebrow,
 .practice-area-card--image p {
   color: rgba(235, 243, 255, 0.96);
   text-shadow: 0 4px 12px rgba(9, 16, 28, 0.28);
+}
+
+.practice-area-card:not(.practice-area-card--image) .practice-area-card__icon {
+  color: #f4ddb4;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.practice-area-card:not(.practice-area-card--image) {
+  background:
+    linear-gradient(155deg, rgba(20, 33, 58, 0.96), rgba(15, 27, 48, 0.92));
+}
+
+.practice-area-card:not(.practice-area-card--image).is-active {
+  background:
+    linear-gradient(155deg, rgba(21, 36, 63, 0.98), rgba(17, 30, 53, 0.96));
+}
+
+.practice-area-card__button:focus-visible {
+  outline: none;
+}
+
+.practice-area-card:has(.practice-area-card__button:focus-visible) {
+  box-shadow:
+    0 18px 34px rgba(17, 29, 49, 0.16),
+    0 0 0 3px rgba(226, 187, 127, 0.22);
+  border-color: rgba(226, 187, 127, 0.62);
 }
 
 .testimonial-quote {
@@ -1213,7 +1670,17 @@ iframe {
   .nav-cta,
   .footer-social-icon,
   .about-figure,
-  .about-image {
+  .about-image,
+  .practice-area-card__icon,
+  .practice-area-card__summary,
+  .practice-area-card__details,
+  .practice-area-card__description,
+  .practice-area-card__list,
+  .why-choose-card__toggle,
+  .why-choose-card__summary,
+  .why-choose-card__details,
+  .why-choose-card__description,
+  .why-choose-card__list {
     transition: none !important;
   }
 }
@@ -1305,6 +1772,14 @@ iframe {
   .contact-map-iframe {
     min-height: 320px;
   }
+
+  .practice-area-card.is-active {
+    grid-column: span 2;
+  }
+
+  .why-choose-card.is-active {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 820px) {
@@ -1336,6 +1811,11 @@ iframe {
 
   .page-section {
     padding: 3rem 0;
+  }
+
+  .practice-areas-section {
+    background-position: center top;
+    padding-block: 3.8rem;
   }
 
   .section-actions {
@@ -1381,6 +1861,16 @@ iframe {
 
   .cards-grid {
     grid-template-columns: 1fr;
+  }
+
+  .practice-area-card.is-active {
+    grid-column: span 1;
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .why-choose-card.is-active {
+    grid-column: span 1;
+    transform: translateY(-2px) scale(1.01);
   }
 
   .form-row {
@@ -1446,6 +1936,11 @@ iframe {
     padding: 2.7rem 0;
   }
 
+  .practice-areas-section {
+    background-position: 58% center;
+    padding-block: 3.3rem;
+  }
+
   .hero-shell {
     min-height: min(62vh, 540px);
     padding-top: 3.9rem;
@@ -1479,6 +1974,14 @@ iframe {
   .contact-overlay-info,
   .contact-form {
     padding: 0.86rem;
+  }
+
+  .practice-area-card__button {
+    padding: 1rem;
+  }
+
+  .why-choose-card__button {
+    padding: 1rem;
   }
 
   .contact-form-actions {
@@ -1547,5 +2050,13 @@ iframe {
 
   .practice-area-card--image:hover::after {
     background: linear-gradient(145deg, rgba(9, 16, 28, 0.72), rgba(9, 16, 28, 0.58));
+  }
+
+  .practice-area-card.is-active {
+    transform: scale(1.01);
+  }
+
+  .why-choose-card.is-active {
+    transform: scale(1.01);
   }
 }

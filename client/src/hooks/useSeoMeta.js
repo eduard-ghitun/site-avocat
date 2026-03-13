@@ -2,22 +2,22 @@ import { useEffect } from 'react'
 
 const seoConfig = {
   home: {
-    title: 'Cabinet de Avocat Nechita Iulian | Avocat Bucuresti Sector 2',
+    title: 'Cabinet de Avocat Nechita Iulian | Avocat Bucuresti',
     description:
-      'Cabinet de avocat in Bucuresti, Sector 2. Nechita Iulian ofera consultanta juridica, asistenta si reprezentare in instanta pentru persoane fizice si companii.',
+      'Cabinet de avocat in Bucuresti. Nechita Iulian ofera consultanta juridica, asistenta si reprezentare in instanta pentru persoane fizice si companii.',
   },
   practice: {
-    title: 'Arii de practica juridica | Avocat Bucuresti Sector 2',
+    title: 'Arii de practica juridica | Avocat Bucuresti',
     description:
-      'Servicii juridice in drept civil, comercial, dreptul muncii si executari silite, oferite de avocat in Bucuresti, Sector 2.',
+      'Servicii juridice in drept civil, comercial, dreptul muncii si executari silite, oferite de avocat in Bucuresti.',
   },
   contact: {
-    title: 'Contact | Cabinet de Avocat Nechita Iulian - Bucuresti Sector 2',
+    title: 'Contact | Cabinet de Avocat Nechita Iulian - Bucuresti',
     description:
-      'Programeaza o consultatie juridica in Bucuresti, Sector 2. Telefon 0753861494, email avocat.iulian.nechita@gmail.com.',
+      'Programeaza o consultatie juridica in Bucuresti. Telefon 0753861494, email avocat.iulian.nechita@gmail.com.',
   },
   blog: {
-    title: 'Blog juridic | Avocat Bucuresti Sector 2',
+    title: 'Blog juridic | Avocat Bucuresti',
     description:
       'Articole juridice utile pentru clienti din Bucuresti: consultanta juridica, litigii si informatii practice explicate clar.',
   },

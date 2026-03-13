@@ -57,7 +57,7 @@ function Navbar() {
           <img
             className="brand-logo"
             src={siteImages.logo}
-            alt="Logo Cabinet de Avocat Nechita Iulian Bucuresti Sector 2"
+            alt="Logo Cabinet de Avocat Nechita Iulian Bucuresti"
             loading="eager"
             decoding="async"
           />

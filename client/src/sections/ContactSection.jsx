@@ -67,7 +67,7 @@ function ContactSection() {
   const contactPhone = contactInfo.cards.find((item) => item.id === 'telefon')?.text
   const contactEmail = contactInfo.cards.find((item) => item.id === 'email')?.text
   const contactAddress = contactInfo.cards.find((item) => item.id === 'adresa')?.text
-  const mapEmbedSrc = 'https://www.google.com/maps?q=Bucuresti%20Sector%202&output=embed'
+  const mapEmbedSrc = 'https://www.google.com/maps?q=Bucuresti&output=embed'
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -148,14 +148,14 @@ function ContactSection() {
         <SectionTitle
           id="contact-section-title"
           title="Contact"
-          subtitle="Cabinet de avocat în București, Sector 2. Programează o consultație juridică pentru evaluarea rapidă a situației tale."
+          subtitle="Cabinet de avocat în București. Programează o consultație juridică pentru evaluarea rapidă a situației tale."
         />
       </div>
 
       <div className="contact-map-layout">
         <div className="contact-map-stage">
           <iframe
-            title="Locație Cabinet de Avocat Nechita Iulian - București Sector 2"
+            title="Locație Cabinet de Avocat Nechita Iulian - București"
             src={mapEmbedSrc}
             className="contact-map-iframe"
             loading="lazy"
@@ -169,7 +169,7 @@ function ContactSection() {
             <header className="contact-overlay-header">
               <PortraitImage
                 src={siteImages.contactPortrait}
-                alt="Consultatie juridica cu avocat in Bucuresti Sector 2"
+                alt="Consultatie juridica cu avocat in Bucuresti"
                 className="contact-overlay-portrait"
                 fallbackLabel="Nechita"
                 loading="lazy"
@@ -180,7 +180,7 @@ function ContactSection() {
                 <p className="contact-overlay-label">Cabinet de Avocat</p>
                 <h3>Nechita Iulian</h3>
                 <p className="contact-overlay-subtitle">
-                  Consultanță juridică și reprezentare profesională în București, Sector 2.
+                  Consultanță juridică și reprezentare profesională în București.
                 </p>
               </div>
             </header>
@@ -330,8 +330,7 @@ function ContactSection() {
             Oferim consultanță juridică în București, cu asistență și
             reprezentare în fața instanțelor de judecată pentru cauze civile,
             comerciale, penale și de dreptul muncii. Consultațiile sunt
-            disponibile în regim programat, la cabinetul din Sector 2 sau
-            online.
+            disponibile în regim programat, la cabinet sau online.
           </p>
         </div>
       </div>

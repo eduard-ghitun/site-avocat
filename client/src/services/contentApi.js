@@ -27,11 +27,22 @@ export const fetchServices = async () =>
     const payload = await getJson('/api/services')
     const data = extractArrayData(payload)
 
-    return data.map((item) => ({
-      id: item.id,
-      title: item.title,
-      text: item.text || item.summary || '',
-    }))
+    return data.map((item, index) => {
+      const fallbackService =
+        servicesFallback.find((service) => service.id === item.id) || servicesFallback[index]
+
+      return {
+        id: item.id,
+        title: item.title || fallbackService?.title || '',
+        text: item.text || item.summary || fallbackService?.text || '',
+        shortText:
+          item.shortText || item.text || item.summary || fallbackService?.shortText || '',
+        details:
+          Array.isArray(item.details) && item.details.length > 0
+            ? item.details
+            : fallbackService?.details || [],
+      }
+    })
   }, servicesFallback)
 
 export const fetchPracticeAreas = async () =>
@@ -39,11 +50,23 @@ export const fetchPracticeAreas = async () =>
     const payload = await getJson('/api/practice-areas')
     const data = extractArrayData(payload)
 
-    return data.map((item) => ({
-      id: item.id,
-      title: item.title,
-      summary: item.summary || item.text || '',
-    }))
+    return data.map((item, index) => {
+      const fallbackArea =
+        practiceAreasFallback.find((area) => area.id === item.id) || practiceAreasFallback[index]
+
+      return {
+        id: item.id,
+        title: item.title || fallbackArea?.title || '',
+        summary: item.summary || item.text || fallbackArea?.summary || '',
+        shortText:
+          item.shortText || item.summary || item.text || fallbackArea?.shortText || '',
+        details:
+          Array.isArray(item.details) && item.details.length > 0
+            ? item.details
+            : fallbackArea?.details || [],
+        image: item.image || fallbackArea?.image,
+      }
+    })
   }, practiceAreasFallback)
 
 export const fetchTestimonials = async () =>

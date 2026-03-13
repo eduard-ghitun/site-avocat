@@ -1,9 +1,29 @@
+import { useEffect, useState } from 'react'
+import WhyChooseCard from '@/components/WhyChooseCard.jsx'
 import SectionTitle from '@/components/SectionTitle.jsx'
 import { services } from '@/data/services.js'
 
 const iconTokens = ['01', '02', '03', '04']
 
 function WhyChooseUsSection({ items = services, isLoading = false }) {
+  const [activeItemId, setActiveItemId] = useState(null)
+
+  useEffect(() => {
+    setActiveItemId((currentActiveItemId) => {
+      if (!currentActiveItemId) {
+        return null
+      }
+
+      return items.some((item) => item.id === currentActiveItemId) ? currentActiveItemId : null
+    })
+  }, [items])
+
+  const handleItemToggle = (itemId) => {
+    setActiveItemId((currentActiveItemId) =>
+      currentActiveItemId === itemId ? null : itemId
+    )
+  }
+
   return (
     <section
       id="why-choose-us"
@@ -25,14 +45,24 @@ function WhyChooseUsSection({ items = services, isLoading = false }) {
           <p className="section-loading">Momentan nu există informații disponibile.</p>
         ) : null}
 
-        <div className="why-choose-grid reveal-stagger">
-          {items.map((item, index) => (
-            <article key={item.id} className="why-choose-card">
-              <span className="why-choose-icon">{iconTokens[index % iconTokens.length]}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
+        <div className="why-choose-grid why-choose-grid--interactive reveal-stagger">
+          {items.map((item, index) => {
+            const fallbackItem = services.find((service) => service.id === item.id)
+
+            return (
+              <WhyChooseCard
+                key={item.id}
+                id={item.id}
+                iconToken={iconTokens[index % iconTokens.length]}
+                title={item.title}
+                text={item.text}
+                shortText={item.shortText || fallbackItem?.shortText || item.text}
+                details={item.details || fallbackItem?.details || []}
+                isActive={activeItemId === item.id}
+                onToggle={() => handleItemToggle(item.id)}
+              />
+            )
+          })}
         </div>
       </div>
     </section>

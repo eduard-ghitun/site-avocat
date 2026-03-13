@@ -16,8 +16,7 @@ function HeroSection() {
             as="h1"
             id="hero-title"
             eyebrow="Excelență juridică"
-            title="Cabinet de Avocat"
-            subtitle="Nechita Iulian – Avocat"
+            title="Avocat Nechita Iulian"
           />
           <p className="section-text hero-lead">
             Oferim consultanță juridică în București, asistență și reprezentare

@@ -1,5 +1,5 @@
 export const contactInfo = {
-  officeName: 'Cabinet de Avocat Nechita Iulian',
+  officeName: 'Avocat Nechita Iulian',
   tagline:
     'Asistență juridică și reprezentare în fața instanțelor de judecată, cu profesionalism, seriozitate și dedicare.',
   registration: 'Avocat - Baroul București',
@@ -7,7 +7,7 @@ export const contactInfo = {
     {
       id: 'adresa',
       title: 'Adresă',
-      text: 'București, Sector 2',
+      text: 'București',
     },
     {
       id: 'telefon',

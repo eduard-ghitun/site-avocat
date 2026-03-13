@@ -50,7 +50,7 @@ function Footer() {
           <div className="footer-brand-row">
             <img
               src={siteImages.logo}
-              alt="Cabinet de Avocat Nechita Iulian Bucuresti Sector 2"
+              alt="Cabinet de Avocat Nechita Iulian Bucuresti"
               className="footer-logo"
               loading="lazy"
               decoding="async"

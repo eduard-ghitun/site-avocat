@@ -15,7 +15,7 @@ function AboutSection() {
           <figure className="about-figure">
             <PortraitImage
               src={siteImages.aboutPortrait}
-              alt="Nechita Iulian, avocat in Bucuresti Sector 2"
+              alt="Nechita Iulian, avocat in Bucuresti"
               className="about-image"
               fallbackLabel="Nechita"
               loading="lazy"
@@ -27,7 +27,7 @@ function AboutSection() {
           <div className="about-content">
             <SectionTitle
               id="about-section-title"
-              title="Nechita Iulian – Avocat"
+              title="Avocat Nechita Iulian"
               subtitle="Despre Avocat"
             />
             <p className="section-text">
@@ -35,7 +35,7 @@ function AboutSection() {
               București, cu studii de master în Științe Penale și
               Criminalistică, ofer asistență juridică și reprezentare în fața
               instanțelor de judecată cu profesionalism, seriozitate și
-              dedicare, în București, Sector 2.
+              dedicare, în București.
             </p>
             <div className="section-actions">
               <PrimaryButton href="#contact">Programează o consultație</PrimaryButton>
