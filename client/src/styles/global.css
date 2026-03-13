@@ -477,6 +477,10 @@ iframe {
   max-width: 64ch;
 }
 
+.hero-actions .btn {
+  min-width: 220px;
+}
+
 .hero-actions {
   margin-top: 1.8rem;
 }
@@ -593,6 +597,10 @@ iframe {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--gold);
+}
+
+.about-content .section-actions .btn {
+  min-width: 240px;
 }
 
 .why-choose-grid {
@@ -1686,9 +1694,37 @@ iframe {
 }
 
 @media (max-width: 1024px) {
+  .container {
+    width: min(1140px, 93%);
+  }
+
+  .hero-shell {
+    min-height: min(74vh, 680px);
+    padding-block: 4.8rem 4rem;
+  }
+
+  .hero-content {
+    max-width: 640px;
+  }
+
+  .hero-lead {
+    max-width: 56ch;
+  }
+
   .about-layout {
     grid-template-columns: 1fr;
     align-items: start;
+    gap: 1.5rem;
+  }
+
+  .about-figure {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    max-width: 760px;
+    margin: 0 auto;
   }
 
   .contact-overlay-grid {
@@ -1697,6 +1733,10 @@ iframe {
 
   .contact-overlay-wrap {
     margin-top: -115px;
+  }
+
+  .contact-overlay-card {
+    padding: 1.15rem;
   }
 }
 
@@ -1725,6 +1765,8 @@ iframe {
     backdrop-filter: blur(10px);
     max-height: calc(100vh - 92px);
     overflow-y: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
   .navbar-nav.is-open {
@@ -1773,6 +1815,10 @@ iframe {
     min-height: 320px;
   }
 
+  .contact-overlay-card {
+    border-radius: 22px;
+  }
+
   .practice-area-card.is-active {
     grid-column: span 2;
   }
@@ -1798,6 +1844,15 @@ iframe {
     padding-bottom: 3.8rem;
   }
 
+  .hero-content {
+    max-width: 560px;
+  }
+
+  .hero-actions .btn,
+  .about-content .section-actions .btn {
+    min-width: 0;
+  }
+
   .contact-overlay-card {
     padding: 1rem;
     border-radius: 20px;
@@ -1813,9 +1868,35 @@ iframe {
     padding: 3rem 0;
   }
 
+  .page-section h1 {
+    max-width: 12ch;
+  }
+
+  .page-section h2 {
+    margin-bottom: 0.75rem;
+  }
+
   .practice-areas-section {
     background-position: center top;
     padding-block: 3.8rem;
+  }
+
+  .hero-shell {
+    align-items: center;
+    min-height: min(70vh, 580px);
+    padding-block: 4rem 3.4rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content .section-header {
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-lead {
+    max-width: 44ch;
   }
 
   .section-actions {
@@ -1827,8 +1908,23 @@ iframe {
     padding-inline: 1.08rem;
   }
 
+  .why-choose-card__button,
+  .practice-area-card__button,
+  .testimonial-card {
+    padding: 1rem;
+  }
+
+  .contact-overlay-wrap {
+    width: min(1140px, 93%);
+  }
+
   .contact-local-seo-text {
+    margin-top: 0.9rem;
     font-size: 0.95rem;
+  }
+
+  .testimonial-quote {
+    line-height: 1.62;
   }
 }
 
@@ -1863,6 +1959,16 @@ iframe {
     grid-template-columns: 1fr;
   }
 
+  .cards-grid,
+  .why-choose-grid,
+  .footer-grid {
+    gap: 0.95rem;
+  }
+
+  .about-layout {
+    gap: 1.2rem;
+  }
+
   .practice-area-card.is-active {
     grid-column: span 1;
     transform: translateY(-2px) scale(1.01);
@@ -1893,6 +1999,14 @@ iframe {
     min-height: 280px;
   }
 
+  .contact-overlay-grid {
+    gap: 0.85rem;
+  }
+
+  .contact-overlay-info-title {
+    margin-bottom: 0.55rem;
+  }
+
   .footer-brand-row {
     align-items: flex-start;
   }
@@ -1906,6 +2020,133 @@ iframe {
 
   .footer {
     padding-top: 2.8rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .container,
+  .contact-overlay-wrap {
+    width: min(1140px, 94%);
+  }
+
+  .page-section {
+    padding: 2.85rem 0;
+  }
+
+  .page-section h1 {
+    font-size: clamp(1.95rem, 8.8vw, 2.45rem);
+    max-width: 11ch;
+  }
+
+  .page-section h2 {
+    font-size: clamp(1.5rem, 7vw, 1.95rem);
+  }
+
+  .section-eyebrow {
+    font-size: 0.76rem;
+    letter-spacing: 0.11em;
+    margin-bottom: 0.52rem;
+  }
+
+  .section-subtitle,
+  .section-text,
+  .practice-area-card__description,
+  .why-choose-card__description,
+  .contact-local-seo-text {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .hero-shell {
+    min-height: min(64vh, 520px);
+    padding-block: 3.7rem 2.9rem;
+  }
+
+  .hero-actions,
+  .section-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn,
+  .about-content .section-actions .btn,
+  .contact-form .btn-primary {
+    width: 100%;
+  }
+
+  .about-figure {
+    border-radius: 22px;
+  }
+
+  .practice-areas-section {
+    background-position: 60% center;
+    padding-block: 3rem;
+  }
+
+  .practice-area-card,
+  .why-choose-card,
+  .testimonial-card {
+    border-radius: 16px;
+  }
+
+  .practice-area-card {
+    min-height: 0;
+  }
+
+  .practice-area-card__button,
+  .why-choose-card__button {
+    gap: 0.75rem;
+    padding: 0.95rem;
+  }
+
+  .practice-area-card__header,
+  .why-choose-card__top {
+    gap: 0.75rem;
+  }
+
+  .practice-area-card__icon,
+  .why-choose-card__toggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.08rem;
+  }
+
+  .practice-area-card__list,
+  .why-choose-card__list {
+    gap: 0.42rem;
+    margin-top: 0.72rem;
+  }
+
+  .contact-map-stage,
+  .contact-map-iframe {
+    min-height: 240px;
+    border-radius: 16px;
+  }
+
+  .contact-overlay-card,
+  .contact-overlay-info,
+  .contact-form {
+    border-radius: 16px;
+  }
+
+  .contact-overlay-card {
+    padding: 0.9rem;
+  }
+
+  .contact-overlay-header h3 {
+    font-size: 1.55rem;
+  }
+
+  .contact-overlay-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .form-field label {
+    margin-bottom: 0.3rem;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 0.7rem 0.78rem;
   }
 }
 
@@ -2014,6 +2255,10 @@ iframe {
 
 @media (max-width: 360px) {
   .container {
+    width: min(1140px, 95%);
+  }
+
+  .contact-overlay-wrap {
     width: min(1140px, 95%);
   }
 
